@@ -1,4 +1,4 @@
-package kr.java.join;
+package kr.java.join.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

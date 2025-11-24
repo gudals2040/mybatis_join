@@ -1,17 +1,19 @@
-package kr.java.join;
+package kr.java.join.config;
 
 import io.github.cdimascio.dotenv.Dotenv;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.ibatis.logging.stdout.StdOutImpl;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 import javax.sql.DataSource;
 
 @Configuration
-//@MapperScan("kr.java.join.model.mapper")
+@MapperScan("kr.java.join.model.mapper")
 public class MyBatisConfig {
 
     @Bean
@@ -39,10 +41,10 @@ public class MyBatisConfig {
         bean.setConfiguration(config);
 
         // Mapper XML
-//        bean.setMapperLocations(
-//                new PathMatchingResourcePatternResolver()
-//                        .getResources("classpath:mapper/*.xml")
-//        );
+        bean.setMapperLocations(
+                new PathMatchingResourcePatternResolver()
+                        .getResources("classpath:mapper/*.xml")
+        );
         return bean.getObject();
     }
 }
