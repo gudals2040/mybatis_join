@@ -43,7 +43,7 @@ public class MyBatisConfig {
         // Mapper XML
         bean.setMapperLocations(
                 new PathMatchingResourcePatternResolver()
-                        .getResources("classpath:Mapper/*.xml")
+                        .getResources("classpath:mapper/*.xml")
         );
         return bean.getObject();
     }
